@@ -1,5 +1,7 @@
 from tkinter import *
+from tkinter import messagebox #Agregado por john 
 from PIL import ImageTk, Image
+
 import imutils
 
 # Función para mostrar el frame de ingreso
@@ -16,6 +18,16 @@ def mostrar_frame_inicio():
 def mostrar_frame_principal():
     frame_ingreso.pack_forget()
     frame_principal.pack(fill="both", expand=1)
+    
+# esta es la funcion para validar las credenciales que por el momento es el del admin, by: john
+def verificar_credenciales():
+    usuario = entry_usuario.get()
+    contrasena = entry_contrasena.get()
+
+    if validar_admin(usuario, contrasena):
+        mostrar_frame_principal()
+    else:
+        messagebox.showerror("Error", "Contraseña incorrecta.")
 
 # --- Ventana principal ---
 pantalla = Tk()
