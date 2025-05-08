@@ -4,7 +4,8 @@ def validar_admin(usuario, contrasena):
     return usuario == ADMIN_USER and contrasena == ADMIN_PASS
 
 
-# este codigo es para puebras independientes (es opcional equisde)
+# este codigo es para puebras independientes (es opcional equisde) 
+# psdt: este codigo es para pobrar en la terminal, by: john
 if __name__ == "__main__":
     user = input("Usuario: ")
     pwd = input("Contraseña: ")
