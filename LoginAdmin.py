@@ -6,6 +6,7 @@ def validar_admin(usuario, contrasena):
 
 # este codigo es para puebras independientes (es opcional equisde) 
 # psdt: este codigo es para pobrar en la terminal, by: john
+# para las pruebas poner esto en terminal "$ python LoginAdmin.py"
 if __name__ == "__main__":
     user = input("Usuario: ")
     pwd = input("Contraseña: ")
