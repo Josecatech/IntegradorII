@@ -21,8 +21,11 @@ def mostrar_frame_principal():
     
 # esta es la funcion para validar las credenciales que por el momento es el del admin, by: john
 def verificar_credenciales():
-    usuario = entry_usuario.get()
-    contrasena = entry_contrasena.get()
+    usuario = entry_usuario.get()     # el entry se usa por la biblioteca de tkinter que se esta importando, eso se usa para que los usuarios puedan escribir texto en la interfaz.
+    contrasena = entry_contrasena.get() # el get es para recibir/obtener los datos que se estan ingresando
+
+    #By:john
+    #Ahora si a mimir ZzZzZ u.u
 
     if validar_admin(usuario, contrasena):
         mostrar_frame_principal()
