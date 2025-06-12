@@ -12,7 +12,7 @@ def mostrar_ventana_acceso(pantalla):
 def abrir_reconocimiento_para_ingreso(pantalla):
     ventana_facial = Toplevel(pantalla)
     ventana_facial.title("Verificación Facial - Ingreso")
-    ventana_facial.geometry("800x900")
+    ventana_facial.geometry("800x500")
 
     label_video = Label(ventana_facial)
     label_video.pack()
@@ -31,7 +31,7 @@ def abrir_reconocimiento_para_ingreso(pantalla):
             if len(faces) > 0 and not rostro_detectado[0]:
                 rostro_detectado[0] = True
                 ventana_facial.after(500, lambda: mostrar_ventana_acceso(pantalla))
-                ventana_facial.after(1500, ventana_facial.destroy)
+                ventana_facial.after(1000, ventana_facial.destroy)
                 cap.release()
                 return
 
