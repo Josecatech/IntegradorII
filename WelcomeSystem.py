@@ -49,6 +49,7 @@ def validar_login():
 # --- Ventana principal ---
 pantalla = Tk()
 pantalla.title("CFBD S.A.C Sistema de ingreso personal")
+pantalla.overrideredirect(True)  # Elimina la barra de título
 
 # Centrar ventana
 ancho_pantalla = pantalla.winfo_screenwidth()
