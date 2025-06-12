@@ -1,6 +1,9 @@
 from tkinter import *
 from PIL import ImageTk, Image
+from IngresoFacial import abrir_reconocimiento_para_ingreso
+
 import imutils
+import cv2
 
 # Función para mostrar el frame de ingreso
 def mostrar_frame_ingreso():
@@ -42,7 +45,7 @@ background1 = Label(frame_inicio, image=imagen1F)
 background1.place(x=0, y=0, relwidth=1, relheight=1)
 
 # Botones en Frame de inicio
-boton1 = Button(frame_inicio, text="Ingreso", width=15, height=2)
+boton1 = Button(frame_inicio, text="Ingreso", width=15, height=2, command=lambda: abrir_reconocimiento_para_ingreso(pantalla))
 boton1.place(x=500, y=550)
 
 boton2 = Button(frame_inicio, text="Administrador", width=15, height=2, command=mostrar_frame_ingreso)
