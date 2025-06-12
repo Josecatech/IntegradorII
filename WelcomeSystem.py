@@ -1,6 +1,8 @@
 from tkinter import *
-from PIL import ImageTk, Image
-import imutils
+from tkinter import messagebox
+from PIL import Image, ImageTk
+from subprocess import Popen
+import sys
 
 # Función para mostrar el frame de ingreso
 def mostrar_frame_ingreso():
@@ -17,9 +19,17 @@ def mostrar_frame_principal():
     frame_ingreso.pack_forget()
     frame_principal.pack(fill="both", expand=1)
 
+# Función para abrir el CRUD de empleados
+def abrir_crud():
+    Popen([sys.executable, "crud_interface.py"])
+
+# Función para abrir el registro de personal (por ahora muestra un mensaje)
+def abrir_registro_personal():
+    messagebox.showinfo("Información", "Funcionalidad en desarrollo: Registro de personal")
+
 # --- Ventana principal ---
 pantalla = Tk()
-pantalla.title("CFBD S.A.C Sistema de ingreso personal")
+pantalla.title("CFBD S.A.C - Sistema de ingreso personal")
 
 # Centrar ventana
 ancho_pantalla = pantalla.winfo_screenwidth()
@@ -75,11 +85,19 @@ boton_entrar.place(x=550, y=550)
 # --- Frame principal (imagen 3) ---
 frame_principal = Frame(pantalla)
 
-imagen3 = Image.open("SetUp/3.png")  # Asegúrate que exista SetUp/3.png
+imagen3 = Image.open("SetUp/Blue Futuristic Technology Presentation.jpg")  # Asegúrate que la imagen exista
 imagen3 = imagen3.resize((1280, 720))
 imagen3F = ImageTk.PhotoImage(imagen3)
 
 background3 = Label(frame_principal, image=imagen3F)
 background3.place(x=0, y=0, relwidth=1, relheight=1)
+
+# Botón 1 - Registro de Personal (por ahora muestra alerta)
+boton_registro = Button(frame_principal, text="Registro de Personal", width=20, height=2, command=abrir_registro_personal)
+boton_registro.place(x=400, y=550)
+
+# Botón 2 - Lista de Empleados (CRUD)
+boton_crud = Button(frame_principal, text="Lista de Empleados", width=20, height=2, command=abrir_crud)
+boton_crud.place(x=700, y=550)
 
 pantalla.mainloop()
