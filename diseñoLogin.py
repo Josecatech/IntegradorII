@@ -8,7 +8,7 @@ class UniformMessageBox(Toplevel):
         self.title(title)
         self.geometry("400x220")  # Tamaño unificado
         self.resizable(False, False)
-
+        self.overrideredirect(True)
         # colores según el tipo
         color_config = {
             "success": {
