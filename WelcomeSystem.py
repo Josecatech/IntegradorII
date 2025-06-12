@@ -2,6 +2,10 @@ from tkinter import *
 from PIL import ImageTk, Image
 import imutils
 import pyodbc  # Conexión a SQL Server
+import subprocess
+import sys
+from lista_empleados import ventana_lista_empleados
+
 from tkinter import messagebox
 from LoginAdmin import validar_usuario  # Importamos solo la función
 from diseñoLogin import show_uniform_message
@@ -12,6 +16,13 @@ print(pyodbc.drivers())
 
 
 # Función para mostrar el frame de ingreso
+def abrir_registro_personal():
+    # Por ahora solo muestra un mensaje (puedes conectar después el módulo real)
+    subprocess.Popen([sys.executable, "Registro_personal.py"])
+
+def abrir_lista_empleados():
+    ventana_lista_empleados(pantalla)
+
 def mostrar_frame_ingreso():
     frame_inicio.pack_forget()
     frame_ingreso.pack(fill="both", expand=1)
@@ -136,11 +147,24 @@ boton_entrar.place(x=550, y=550)
 # --- Frame principal (imagen 3) ---
 frame_principal = Frame(pantalla)
 
-imagen3 = Image.open("SetUp/3.png")  # Asegúrate que exista SetUp/3.png
+imagen3 = Image.open("SetUp/Fondo.jpg")  # Asegúrate que exista SetUp/3.png
 imagen3 = imagen3.resize((1280, 720))
 imagen3F = ImageTk.PhotoImage(imagen3)
 
 background3 = Label(frame_principal, image=imagen3F)
 background3.place(x=0, y=0, relwidth=1, relheight=1)
+# Botón: Registro de Personal
+btn_registro = crear_boton_estilizado(frame_principal, "Registro de Personal", command=abrir_registro_personal)
+btn_registro.place(x=400, y=500)
+
+# Botón: Lista de Empleados
+btn_lista = crear_boton_estilizado(frame_principal, "Lista de Empleados", command=abrir_lista_empleados)
+btn_lista.place(x=700, y=500)
+
+
+def abrir_lista_empleados():
+    ventana_lista_empleados()
+
+
 
 pantalla.mainloop()

@@ -8,7 +8,7 @@ def conectar_db():
     try:
         connection_string = """
             DRIVER={ODBC Driver 17 for SQL Server};
-            SERVER=DESKTOP-PVMS4J8;
+            SERVER=LAPTOP-6SOD4TD3\SQLEXPRESS;
             DATABASE=UTP_SECURITYFACIAL;
             Trusted_Connection=yes;
         """
